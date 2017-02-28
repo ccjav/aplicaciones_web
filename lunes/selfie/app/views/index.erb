@@ -1,18 +1,16 @@
 <h1>Welcome to Selfie!</h1>
 
-
 <form method="post" enctype='multipart/form-data' action="upload">
-
   <input type='file' name='photo[photo]'>
   <br/>
   <input type='submit' value='Upload!'>
 </form>
-<% if @photo %>
+
+
 <ul>
   <% @photos.each do |photo| %>
     <div> 
-      <img src="<%= photo.photo_url(:thumb) %>">
+      <img src="<%= photo.image(:thumb) %>">
     </div>
   <% end %>
 </ul>
-<% end %>
