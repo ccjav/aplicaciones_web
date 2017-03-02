@@ -10,9 +10,22 @@
   <button type="submit">Ver tweets!</button>
 </form>
 
-<h2>Tweetea</h2>
+<!-- <h2>Tweetea ahora</h2>
 <form id="tweetForm" action="/tweet" method="post">
   <input id="tweetField" type="text" name="tweet">
+  <button type="submit">Tweetea</button>
+</form> -->
+
+<h2>Tweetea en el futuro</h2>
+<form id="tweetForm" action="/tweet" method="post">
+  <input id="tweetField" type="text" name="tweet">
+  En: <input type="text" name="time">
+  <select name="time_unit">
+    <option value="hours">Horas</option>
+    <option value="minutes">Minutos</option>
+    <option value="seconds">Segundos</option>
+  </select>
+
   <button type="submit">Tweetea</button>
 </form>
 

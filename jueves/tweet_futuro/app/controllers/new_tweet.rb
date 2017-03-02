@@ -1,17 +1,8 @@
 post '/tweet' do
-
   if logged_in?
-    $client.access_token=@current_user.oauth_token
-    $client.access_token_secret=@current_user.oauth_token_secret
-    $client.update(params[:tweet])
-    last_tweet = $client.user_timeline(@current_user.twitter_handles, count: 1)
-    if last_tweet[0].full_text == params[:tweet]
-      "Éxito"
-    else
-      "Error"
-    end
+    # @current_user.tweet(params[:tweet])
+    @current_user.tweet_later(params[:tweet], params[:time].to_i, params[:time_unit])
   else
     "Debe iniciar sesión"
-  end
-  
+  end 
 end
