@@ -1,0 +1,38 @@
+.container {
+  margin: 0 0 0 150px;
+  width: 720px;
+  padding-left:20px;
+}
+
+nav {
+	position: fixed;
+	height: 100%;
+	left: 0;
+	background: gray;
+	top: 0;
+}
+
+nav ul {
+	list-style-type: none;
+	padding-left: 0;
+	margin: 0;
+}
+
+nav ul li {
+	border-bottom: 1px solid black;
+	padding: .8em 1.4em .8em .9em;
+}
+nav ul li a {
+	text-decoration: none;
+	color: black;
+}
+
+header {
+	padding-left: 2em;
+}
+.content {
+	padding-left: 2em;
+}
+
+
+
