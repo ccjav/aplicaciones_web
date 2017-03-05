@@ -9,8 +9,8 @@
 
 <ul>
   <% @photos.each do |photo| %>
-    <div> 
-      <img src="<%= photo.image(:thumb) %>">
+    <div>
+      <img src="<%= photo.image %>">
     </div>
   <% end %>
 </ul>
