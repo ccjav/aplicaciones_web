@@ -3,12 +3,18 @@
 <div class="centerTable">
 	<table class="hovertable">
 		<!-- ¿Qué va en esta parte para mostrar la lista de ganadores? -->
-		
-			<% if round_won != 0 %>
-				  <tr onmouseover="this.style.backgroundColor='#ffff66';" onmouseout="this.style.backgroundColor='#d4e3e5';">
-				  </tr>
-			<% end %>
-		
+		<tr>
+			<th>Player</th>
+			<th>Games won</th>
+		</tr>
+		<% @records.each do |player, games_won| %>
+        	<tr>
+        		<td><%= player %></td>
+        		<td><%= games_won %></td>
+        	</tr>
+      	<% end %>
+
+
 	</table>
 </div>
 

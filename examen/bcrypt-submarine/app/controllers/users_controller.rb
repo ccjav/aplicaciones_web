@@ -16,6 +16,6 @@ post '/signup' do
     @error_name = @user.errors.messages[:name]
     @error_email = @user.errors.messages[:email]
     @error_password = @user.errors.messages[:password]
-    erb :register
+    redirect '/signup'
   end
 end

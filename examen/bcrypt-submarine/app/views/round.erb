@@ -7,10 +7,19 @@
 <div class="centerTable">
 	<% if @rounds.count != 0 %>
 		<table class="hovertable">
-			<!-- ¿Qué va en esta parte para llevar la puntuación por round del jugador? -->
-			<% @rounds.each do |round| %>
-        <p> <%= round.destroyes_subs %> </p>
-      <% end %>
+		<tr>
+			<th>Round</th>
+			<th>Destroyed Submarines</th>
+			<th>Result</th>
+		</tr>
+		<!-- ¿Qué va en esta parte para llevar la puntuación por round del jugador? -->
+		<% @rounds.each do |round| %>
+        	<tr>
+        		<td><%= round.id %></td>
+        		<td><%= round.destroyed_subs %></td>
+        		<td><%= round.win %></td>
+        	</tr>
+      	<% end %>
 		</table>
 	<% else %>
 	  <h3>No rounds for this player!</h3>

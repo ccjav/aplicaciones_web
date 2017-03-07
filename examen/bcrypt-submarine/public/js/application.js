@@ -1,31 +1,31 @@
 //función que inicia el juego
 function start_game(subOne, subTwo) {
- 
+
   //variable que tiene un arreglo asignado con la posición de los dos submarinos a destruir
   var winner = randomCell();
   console.log("winner " + winner);
     $('.cell').on("click", function(evento){
-      var playerClick = $(this).attr('id'); 
+      var playerClick = $(this).attr('id');
       var url = $('#play').attr('action');
       //¿qué debería ir aquí para conocer el número de submarinos destruidos o si el jugador es ganador?
 
-      countForPlay += 1;
-      
+
       //¿que debería ir aquí para mandar al controlador el conteo de submarinos destruidos y el
       //conteo de oportunidades por ronda?
-     
-      var thescore = won(playerClick, winner);  
+
+      var thescore = won(playerClick, winner);
       console.log("thescore " + thescore);
       if (thescore != undefined) {
-      
+
         $.post( "/games", "score=" + thescore.toString(), function( data ) {
           // $('#tweetField').prop('disabled', true);
           console.log("data " + data)
         });
-      } 
-      
+      }
+      countForPlay += 1;
+
     });
-  
+
   //función para conocer el número de submarinos destruidos o si el jugador es ganador
   function won(playerValue, subValue) {
     console.log("en won " + playerValue + " " + subValue);
@@ -57,7 +57,7 @@ function start_game(subOne, subTwo) {
     if (countForPlay == 2) {
       return nowWinner
     }
-    
+
   }
 }
 
@@ -83,7 +83,7 @@ var resetInit = function() {
   //¿qué debería ir aquí para generar las celdas cada vez que se inicia juego?
   for (var a = 0; a < 9; a += 1) {
     $( "#container" ).append( "<div id='c" + a + "' class='cell'></div>" );
-  } 
+  }
 }
 
 //función que genera la posición de los dos submarinos
@@ -103,7 +103,7 @@ var randomCell = function() {
 
     return [valueSubOne, valueSubTwo]
   }
-  
+
 }
 
 $(document).ready(function(){
@@ -122,5 +122,5 @@ $(document).ready(function(){
       // console.log(randomCell());
       start_game(2, 3);
     });
-  	  
+
 });

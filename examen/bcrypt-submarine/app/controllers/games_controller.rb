@@ -12,15 +12,19 @@ post '/games' do
 
   #¿Qué va en esta parte para llevar el registro de las puntuaciones por ronda?
   if params[:score] == "2"
-    win = true
+    win = "Winner!"
   else
-    win = false  
+    win = "Almost!"
   end
-  due = Game.new(user_id: session[:user_id], destroyes_subs: params[:score], win: win)
+  due = Game.new(user_id: session[:user_id], destroyed_subs: params[:score], win: win)
   due.save!
 end
 
 post '/new_game' do
   #¿Qué va en esta parte para redirigir a secret?
- 
+  if logged_in?
+    redirect '/secret'
+  else
+    redirect '/'
+  end
 end
